@@ -6,11 +6,15 @@ const connectDB = require('./config/db');
 const { isAuthenticated, isGuest, setUser } = require('./middleware/auth');
 const { notFound, errorHandler } = require('./middleware/error');
 require('dotenv').config();
-
-
-
 const app = express();
-connectDB();
+
+// Connect to MongoDB
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((error) => console.error('MongoDB connection error:', error));
+
+//connectDB();
 
 // View engine setup
 app.set('view engine', 'ejs');
