@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
@@ -5,14 +6,9 @@ const path = require('path');
 const connectDB = require('./config/db');
 const { isAuthenticated, isGuest, setUser } = require('./middleware/auth');
 const { notFound, errorHandler } = require('./middleware/error');
-require('dotenv').config();
+
 const app = express();
 
-// Connect to MongoDB
-mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch((error) => console.error('MongoDB connection error:', error));
 
 //connectDB();
 
@@ -41,6 +37,12 @@ app.use(
     maxAge: 24 * 60 * 60 * 1000 // 24 hours
   }
 }));
+
+// Connect to MongoDB
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((error) => console.error('MongoDB connection error:', error));
 
 // Set user middleware
 app.use(setUser);
