@@ -5,6 +5,9 @@ const path = require('path');
 const connectDB = require('./config/db');
 const { isAuthenticated, isGuest, setUser } = require('./middleware/auth');
 const { notFound, errorHandler } = require('./middleware/error');
+require('dotenv').config();
+
+
 
 const app = express();
 connectDB();
@@ -19,12 +22,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Session configuration
-app.use(session({
-  secret: 'your_secret_key',
-  resave: false,
-  saveUninitialized: false,
-  store: MongoStore.create({
-    mongoUrl: 'mongodb+srv://vercel-admin-user:37gL9NDemNr08Ikg@cluster0.albqgvh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
+app.use(
+  session({
+    secret: process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
     ttl: 24 * 60 * 60 // Session TTL (1 day)
   }),
   cookie: {
