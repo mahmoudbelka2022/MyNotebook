@@ -6,6 +6,7 @@ const path = require('path');
 const connectDB = require('./config/db');
 const { isAuthenticated, isGuest, setUser } = require('./middleware/auth');
 const { notFound, errorHandler } = require('./middleware/error');
+const mongoose = require('mongoose');
 
 const app = express();
 
@@ -29,7 +30,7 @@ app.use(
     saveUninitialized: true,
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URI,
-    ttl: 24 * 60 * 60 // Session TTL (1 day)
+
   }),
   cookie: {
     secure: process.env.NODE_ENV === 'production',
