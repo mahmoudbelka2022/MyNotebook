@@ -69,6 +69,8 @@ router.post('/edit/:id', isAuthenticated, async (req, res) => {
   }
 });
 
+
+
 // Delete note
 router.post('/delete/:id', isAuthenticated, async (req, res) => {
   try {

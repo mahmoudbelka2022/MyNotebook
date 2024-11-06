@@ -25,15 +25,28 @@
 }
 
 body {
+  background-image: url('/images/notebook.jpg');
+  background-size: cover;          /* Ensures the image covers the full background */
+      background-repeat: no-repeat;    /* Prevents the image from repeating */
+      background-position: center;     /* Centers the background image */
+      color: white;                    /* Makes text readable over the background */
+      min-height: 100vh;
   font-family: 'Poppins', sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-primary);
+
   line-height: 1.5;
   display: flex;
   align-items: center;
   justify-content: center;
 
 }
+
+.overlay {
+      background-color: rgba(0, 0, 0, 0.2); /* Adds a dark overlay */
+      min-height: 100vh;                   /* Ensures it covers the full viewport */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
 h1 {
   font-size: 2.5em;
@@ -286,4 +299,12 @@ form{
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+/* Center and style the date text */
+.note-date {
+  display: block;             /* Ensures it sits on its own line */
+  font-size: 0.9rem;          /* Slightly smaller font size */
+  color: #6c757d;             /* Bootstrap’s text-muted color */
+  text-align: center;         /* Centers within the card */
+  margin-top: 8px;            /* Adds spacing above the date */
 }
