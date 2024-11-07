@@ -1,8 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const Note = require('../models/Note');
-const { isAuthenticated } = require('../middleware/auth'); // Make sure this path is correct
+//const { isAuthenticated } = require('../middleware/auth'); // Make sure this path is correct
 
+// Middleware to check if user is authenticated
+function isAuthenticated(req, res, next) {
+  if (req.session.userId) {
+    return next();
+  }
+  res.redirect('/auth/login');
+}
 // Get dashboard
 router.get('/dashboard', isAuthenticated, async (req, res) => {
   try {

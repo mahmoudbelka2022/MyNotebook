@@ -23,22 +23,28 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Session configuration
-app.use(
-  session({
-    secret: process.env.SECRET_KEY || '1653163751ea07b48f26a20359522d86f675e6efb2da6bda333527b4f107812c',
-    resave: false,
-    saveUninitialized: true,
-    store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_URI,
-      collectionName: 'sessions',
-
-  }),
-  cookie: {
-    secure: process.env.NODE_ENV === 'production',
-    httpOnly: true,
-    maxAge: 24 * 60 * 60 * 1000 // 24 hours
-  }
+app.use(session({
+  secret: '1653163751ea07b48f26a20359522d86f675e6efb2da6bda333527b4f107812c', // replace with a strong, unique key
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: false } // Use secure: true in production with HTTPS
 }));
+// app.use(
+//   session({
+//     secret: process.env.SECRET_KEY || '1653163751ea07b48f26a20359522d86f675e6efb2da6bda333527b4f107812c',
+//     resave: false,
+//     saveUninitialized: true,
+//     store: MongoStore.create({
+//       mongoUrl: process.env.MONGODB_URI,
+//       collectionName: 'sessions',
+//
+//   }),
+//   cookie: {
+//     secure: process.env.NODE_ENV === 'production',
+//     httpOnly: true,
+//     maxAge: 24 * 60 * 60 * 1000 // 24 hours
+//   }
+// }));
 
 // Connect to MongoDB
 mongoose

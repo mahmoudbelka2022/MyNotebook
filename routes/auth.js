@@ -19,6 +19,9 @@ router.post('/register', async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
+  if(req.session.userId){
+    return res.redirect('/notes/dashboard');
+  }
   res.render('login');
 });
 
