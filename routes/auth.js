@@ -32,7 +32,7 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.userId = user._id;
-    res.redirect('/notes/dashboard');
+    res.redirect('/dashboard');
   } catch (err) {
     res.status(400).send('Login failed');
   }
