@@ -11,6 +11,12 @@
       /* Ensure body takes full viewport height */
       body, html {
         height: 100%;
+        background-image: url('/images/notebook.jpg');
+        background-size: cover;          /* Ensures the image covers the full background */
+            background-repeat: no-repeat;    /* Prevents the image from repeating */
+            background-position: center;     /* Centers the background image */
+            color: white;                    /* Makes text readable over the background */
+            min-height: 100vh;
       }
     </style>
 </head>
@@ -98,11 +104,15 @@
         </div>
       <% }); %>
     </div>
+
     <footer class="mt-auto py-3">
+
     <a href="/auth/logout" class="btn btn-outline-secondary">Logout</a>
+
   </footer>
 
-  </div>
-</div>
+
+</nav>
+
 </body>
 </html>

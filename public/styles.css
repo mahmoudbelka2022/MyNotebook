@@ -23,15 +23,49 @@
   padding: 0;
   box-sizing: border-box;
 }
+h2{
+  font-size: 30px;
+    font-weight: bold;
+    color: #080808;
+
+
+    /* Light translucent background to enhance brightness */
+    padding: 6px 12px;
+    background-color: rgba(255, 255, 255, 0.3); /* Light semi-transparent backdrop */
+    border-radius: 4px;
+    f
+    text-align: center; /* Center the heading */
+}
+label{
+  font-size: 20px;
+    font-weight: bold;
+    color: #080808;
+
+
+    /* Light translucent background to enhance brightness */
+    padding: 6px 12px;
+    background-color: rgba(255, 255, 255, 0.3); /* Light semi-transparent backdrop */
+    border-radius: 4px;
+}
+a{
+  color: #080808;
+}
+
+p{
+  font-size: 17px;
+    font-weight: bold;
+    color: #6d6b69;
+
+
+    /* Light translucent background to enhance brightness */
+    padding: 6px 12px;
+    background-color: rgba(255, 255, 255, 0.3); /* Light semi-transparent backdrop */
+    border-radius: 4px;
+}
 
 body {
-  background-image: url('/images/notebook.jpg');
-  background-size: cover;          /* Ensures the image covers the full background */
-      background-repeat: no-repeat;    /* Prevents the image from repeating */
-      background-position: center;     /* Centers the background image */
-      color: white;                    /* Makes text readable over the background */
-      min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
+
+  font-family: 'Faculty Glyphic', sans-serif;
 
   line-height: 1.5;
   display: flex;
@@ -55,9 +89,20 @@ h1 {
   align-items: center;
 }
 
-form{
-
+p{
+  color: #212f3c;
 }
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
 
 /* Navigation Styles */
 .navbar {
